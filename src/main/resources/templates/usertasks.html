@@ -16,12 +16,23 @@
             <a th:href="@{/}"><img th:src="@{/images/JustDoIt.png}" alt="JustDoIt Logo" width="200" height="200"></a>
         </div>
 
+
         <nav class="navigation">
             <h3>Tareas</h3>
             <ul>
-                <li><a th:href="@{/user/tasks}">Tareas de usuario actual</a></li>
+                <li>
+                    <a th:href="@{/user/tasks}">
+                        Tareas de usuario actual
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/user/tasks/report}">
+                        Reporte de tareas
+                    </a>
+                </li>
             </ul>
         </nav>
+
     </aside>
 
     <!-- Right column -->
@@ -29,14 +40,8 @@
         <h1>Tareas de usuario</h1>
 
         <!-- User info -->
-        <div class="user-card">
-            <div class="user-avatar" th:text="${user.name != null} ? ${user.name.substring(0,1)} : 'U'">U</div>
-            <div class="user-info">
-                <div><strong th:text="${user.name}">Nombre Usuario</strong> <span style="color:#666">(<span th:text="${user.userName}">username</span>)</span></div>
-                <div>Email: <span th:text="${user.email}">email@example.com</span></div>
-                <div>Tipo: <span th:text="${user.type}">REGULAR</span></div>
-            </div>
-        </div>
+        <div th:replace="~{fragments/user-info :: userInfo}"></div>
+
 
         <!-- Tasks grouped by status -->
         <div class="tasks-grid">

@@ -47,4 +47,11 @@ public class UserTasksController {
         user.addTask(newTask);
         return "redirect:/user/tasks";
     }
+
+
+    @GetMapping("/report")
+    public String showTaskReport() {
+        return "tasks-report";
+    }
+
 }
